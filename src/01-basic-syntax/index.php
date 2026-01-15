@@ -14,11 +14,11 @@ class User
 }
 $user = new User();
 $user->name = "Devi";
-prinln($user->name);
+println($user->name);
 $user->name = "Teddy";
-prinln($user->name);
+println($user->name);
 
-function prinln(string $message)
+function println(string $message)
 {
     echo $message . PHP_EOL;
 }
