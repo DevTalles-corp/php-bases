@@ -7,7 +7,7 @@ echo "🛒 Operadores en PHP\n\n";
 $price = 100;
 $qty = 1;
 $stock = 2;
-$coupon = "DEV10";
+$coupon = "DEV100";
 
 $canBuy = ($qty <= $stock) && ($qty > 0); // false
 
@@ -29,4 +29,5 @@ $total -= $discount;
 $stock -= $qty;
 $orderNumber = 99;
 echo "Orden # " . ++$orderNumber . " confirmada\n";
+echo "Descuento: $discount Total: $total\n";
 echo "Stock Final: $stock\n";
