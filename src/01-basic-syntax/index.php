@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 // comentario de una sola línea
 # comentario de una sola línea
