@@ -23,7 +23,7 @@ if ($score >= 90) {
 }
 
 
-$role = "editor";
+$role = "user";
 switch ($role) {
     case 'admin':
         echo "Acceso completo al sistema\n";
@@ -41,7 +41,7 @@ switch ($role) {
 $return_access = match ($role) {
     'admin' => "Acceso completo al sistema\n",
     'editor' => "Acceso de edición\n",
-    'user' => 'Acceso limitado\n',
+    'user' => "Acceso limitado\n",
     default => "Rol no reconocido\n"
 };
 echo $return_access;
