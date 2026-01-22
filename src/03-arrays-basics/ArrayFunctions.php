@@ -28,19 +28,49 @@ $users = [
         "last_login" => "2026-01-15 18:10"
     ]
 ];
-$totalUsers = count($users);
-echo "Total de usuarios: $totalUsers\n";
-$userNames = array_map(
-    fn(array $user): string => $user["username"],
+// $totalUsers = count($users);
+// echo "Total de usuarios: $totalUsers\n";
+// $userNames = array_map(
+//     fn(array $user): string => $user["username"],
+//     $users
+// );
+// foreach ($userNames as $userName) {
+//     echo "Username: $userName\n";
+// }
+// $adminUsers = array_filter(
+//     $users,
+//     fn(array $user) => $user["role"] === "admin",
+// );
+// foreach ($adminUsers as $adminUser) {
+//     echo "Usuario con el rol admin: {$adminUser["name"]}\n";
+// }
+
+$allowedRoles = array_map(
+    fn(array $user): string => $user["role"],
     $users
 );
-foreach ($userNames as $userName) {
-    echo "Username: $userName\n";
+$currentRole = "client";
+echo in_array($currentRole, $allowedRoles)
+    ? "El rol $currentRole es válido\n"
+    : "El rol $currentRole no es válido\n";
+
+$maria = $users[2];
+if (array_key_exists("password", $maria)) {
+    echo "Existe la llave proporcionada\n";
+} else {
+    echo "No existe la llave proporcionada\n";
 }
-$adminUsers = array_filter(
-    $users,
-    fn(array $user) => $user["role"] === "admin",
+
+$cart = [
+    ["product" => "Laptop", "price" => 1200],
+    ["product" => "Mouse", "price" => 20],
+    ["product" => "Teclado", "price" => 80]
+];
+$totalCart = array_reduce(
+    $cart,
+    function ($total, $product) {
+        return $total + (float)$product["price"];
+    },
+    0
 );
-foreach ($adminUsers as $adminUser) {
-    echo "Usuario con el rol admin: {$adminUser["name"]}\n";
-}
+echo "El total del carrito es: $totalCart\n";
