@@ -74,3 +74,39 @@ $totalCart = array_reduce(
     0
 );
 echo "El total del carrito es: $totalCart\n";
+
+
+$catalog = [
+    ["sku" => "LP-001", "name" => "Laptop", "price" => 1200, "stock" => 3],
+    ["sku" => "MS-002", "name" => "Mouse", "price" => 25, "stock" => 0],
+    ["sku" => "KB-003", "name" => "Teclado", "price" => 80, "stock" => 12],
+];
+
+$usersTask = [
+    ["id" => 1, "name" => "Ana", "email" => "ana@email.com", "role" => "user"],
+    ["id" => 2, "name" => "Luis", "email" => "luis@email.com", "role" => "admin"],
+    ["id" => 3, "name" => "María", "email" => "maria@email.com", "role" => "editor"],
+];
+/*
+=============
+🏆 Tarea para funciones en arreglos para transformar y filtrar
+=============
+*/
+$listUsers = array_map(
+    fn(array $user) => [
+        "id" => $user["id"],
+        "label" => "{$user["name"]} ({$user["role"]})"
+    ],
+    $usersTask
+);
+foreach ($listUsers as $user) {
+    echo "- {$user["label"]}\n";
+}
+
+$availableProducts = array_filter(
+    $catalog,
+    fn($product) => $product["stock"] > 0
+);
+foreach ($availableProducts as $product) {
+    echo "{$product["name"]} | Precio: {$product["price"]}\n";
+}
