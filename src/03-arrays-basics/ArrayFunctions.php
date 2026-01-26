@@ -110,3 +110,17 @@ $availableProducts = array_filter(
 foreach ($availableProducts as $product) {
     echo "{$product["name"]} | Precio: {$product["price"]}\n";
 }
+usort(
+    $availableProducts,
+    fn(array $a, array $b) => $a["price"] <=> $b["price"]
+);
+foreach ($availableProducts as $product) {
+    echo "-> {$product["name"]} | Precio: {$product["price"]}\n";
+}
+
+$skuList = array_column($catalog, "sku");
+$requestedSku = "KB-0031";
+echo
+in_array($requestedSku, $skuList, true)
+    ? "El producto con SKU: $requestedSku existe en el catálogo\n"
+    : "El producto con SKU: $requestedSku no existe en el catálogo\n";
