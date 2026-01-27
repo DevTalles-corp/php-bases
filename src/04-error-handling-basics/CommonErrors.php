@@ -28,3 +28,20 @@ function divide(int $a, int $b): float
 }
 $result = divide(10, 0);
 echo "Resultado de la división es: $result\n";
+
+$fruits = ["manzana", "banana", "naranja"];
+if (isset($fruits[3])) {
+
+    echo "$fruits[3]\n";
+} else {
+    echo "Error: Índice 3 no existe en el array\n";
+}
+
+function greet(string $name): string
+{
+    if (func_num_args() > 1) {
+        return "No deberías mandar mas de un argumento\n";
+    }
+    return "Hola, $name!\n";
+}
+echo greet("Devi");
