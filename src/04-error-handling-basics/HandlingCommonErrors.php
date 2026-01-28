@@ -4,20 +4,28 @@ declare(strict_types=1);
 
 function requireField(array $data, string $field): string
 {
-    return "Implementar función";
+    if (
+        !array_key_exists($field, $data) ||
+        trim($data[$field]) === ""
+    ) {
+        throw new InvalidArgumentException("El campo '{$field}' es obligatorio");
+    }
+    return (string)$data[$field];
 }
 function calculateTotal(float $price, int $quantity): float
 {
     if ($price < 0) {
         throw new InvalidArgumentException("El precio no puede ser negativo.");
     }
+    if ($quantity <= 0) {
+        throw new InvalidArgumentException("La cantidad debe ser mayor a cero.");
+    }
     return $price * $quantity;
 }
 function divide(int $a, int $b): float
 {
     if ($b === 0) {
-        echo ("División por cero no permitida. El divisor (b) no puede ser 0.");
-        return 0;
+        throw new DivisionByZeroError("División por cero no permitida. El divisor (b) no puede ser 0.");
     }
     return $a / $b;
 }
@@ -37,16 +45,17 @@ function greet(string $name): string
 
 try {
     $formData = [
-        "name" => "Devi"
+        "name" => "Devi",
+        "email" => "devi@mail.com"
     ];
 
     $email = requireField($formData, "email");
     echo "Email recibido: {$email}\n";
 
-    $total = calculateTotal(100.03, -2);
+    $total = calculateTotal(100.03, 2);
     echo "Total a pagar: {$total}\n";
 
-    $result = divide(10, 0);
+    $result = divide(10, 2);
     echo "Resultado de la división: {$result}\n";
 
     $fruits = ["manzana", "banana", "naranja"];
