@@ -32,13 +32,16 @@ function divide(int $a, int $b): float
 
 function getArrayItem(array $items, int $index): string
 {
-    return "Implementar función";
+    if (!array_key_exists($index, $items)) {
+        throw new OutOfBoundsException("Índice {$index} no existe en el array.");
+    }
+    return (string)$items[$index];
 }
 
 function greet(string $name): string
 {
     if (func_num_args() > 1) {
-        return "No deberías mandar mas de un argumento\n";
+        throw new ArgumentCountError("");
     }
     return "Hola, $name!\n";
 }
@@ -59,9 +62,11 @@ try {
     echo "Resultado de la división: {$result}\n";
 
     $fruits = ["manzana", "banana", "naranja"];
-    // echo getArrayItem($fruits, 3) . "\n";
+    echo getArrayItem($fruits, 2) . "\n";
 
-    // echo greet("Devi", "Test");
+    echo greet("Devi");
+
+    //test("prueba");
 } catch (InvalidArgumentException $e) {
     echo "Error de validación: " . $e->getMessage() . "\n";
 } catch (DivisionByZeroError $e) {
