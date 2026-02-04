@@ -34,3 +34,4 @@ $allowedUserWhitRole = array_filter(
 foreach ($allowedUserWhitRole as $userRole) {
     echo "-> Nombre: " . $userRole["name"] . "\n";
 }
+
