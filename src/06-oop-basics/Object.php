@@ -6,16 +6,20 @@ class User
 {
     public string $name;
     public string $email;
+
+    public function __construct(string $name, string $email)
+    {
+        $this->name = $name;
+        $this->email = $email;
+    }
     public function showProfile()
     {
         echo "Nombre: {$this->name}, Email: {$this->email}\n";
     }
 }
 
-$user = new User();
+$user = new User("Devi", "devi@mail.com");
 echo "Objeto user fue creado correctamente\n";
 var_dump($user);
-$user->name = "Devi";
-$user->email = "devi@mail.com";
 echo "Su propiedad nombre tiene el valor: $user->name\n";
 $user->showProfile();
