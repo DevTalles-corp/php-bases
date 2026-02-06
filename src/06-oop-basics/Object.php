@@ -6,6 +6,10 @@ class User
 {
     public string $name;
     public string $email;
+    public function showProfile()
+    {
+        echo "Nombre: {$this->name}, Email: {$this->email}\n";
+    }
 }
 
 $user = new User();
@@ -14,3 +18,4 @@ var_dump($user);
 $user->name = "Devi";
 $user->email = "devi@mail.com";
 echo "Su propiedad nombre tiene el valor: $user->name\n";
+$user->showProfile();
