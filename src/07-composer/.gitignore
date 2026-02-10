@@ -1,0 +1,6 @@
+# Composer
+/vendor/
+composer.phar
+
+# You should commit your application's lock file
+# 

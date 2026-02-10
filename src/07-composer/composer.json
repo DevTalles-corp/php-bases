@@ -1,0 +1,16 @@
+{
+    "name": "teddypaz/07-composer",
+    "description": "Proyecto para demostrar el uso de composer",
+    "autoload": {
+        "psr-4": {
+            "Teddypaz\\07Composer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Teddy Paz",
+            "email": "pazteddy@gmail.com"
+        }
+    ],
+    "require": {}
+}
