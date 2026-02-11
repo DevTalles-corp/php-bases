@@ -12,5 +12,7 @@
             "email": "pazteddy@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "ajaz/random-quotes-generator-php": "^1.0"
+    }
 }
