@@ -3,7 +3,7 @@
     "description": "Proyecto para demostrar el uso de composer",
     "autoload": {
         "psr-4": {
-            "Teddypaz\\07Composer\\": "src/"
+            "App\\": "src/"
         }
     },
     "authors": [
